@@ -1,0 +1,424 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Hacker*innen-Ethik – Jugend hackt AT 2019</title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+    <style type="text/css">
+      .reveal h1, .reveal h2 {
+        text-transform: none;
+      }
+      .reveal h1 {
+        color: #2aabe1;
+      }
+      .reveal section img {
+        display: block;
+        margin: 0 auto;
+      }
+      .reveal ul {
+        font-size: 0.75em;
+      }
+      .reveal ul > li {
+        margin-bottom: 0.25em;
+      }
+      .question h1 {
+        font-size: 1.1em;
+        margin-bottom: 0.75em;
+      }
+      .question h1 mark {
+        background: #2aabe1;
+        color: #fff;
+        padding: 0 10px;
+/*        text-transform: uppercase;*/
+      }
+      .question ol {
+        list-style: symbols("1 |" "10 |" "11 |");
+        margin-left: 2em;
+        font-size: 0.75em;
+      }
+      .question ol > li {
+        padding: 0.5em;
+        transition: background 0.5s cubic-bezier(.19, .66, .72, 1.52) !important;
+        transition: color 0.5s cubic-bezier(.19, .66, .72, 1.52) !important;
+        background: transparent;
+      }
+      .question ol > li::marker {
+        font-weight: bold;
+      }
+      .question ol > li:nth-child(1)::marker, .question ol.horizontal > li:nth-child(1) .nr {
+        color: #f968ae;
+      }
+      .question ol > li:nth-child(2)::marker, .question ol.horizontal > li:nth-child(2) .nr {
+        color: #c1cd5b;
+      }
+      .question ol > li:nth-child(3)::marker, .question ol.horizontal > li:nth-child(3) .nr {
+        color: #36b94e;
+      }
+      .question ol.horizontal {
+        display: flex;
+        justify-content: space-between;
+        margin-left: 0;
+        list-style: none;
+      }
+      .question ol.horizontal > li {
+        width: 30%;
+        margin-top: 0;
+        text-align: center;
+      }
+      .question ol.horizontal .nr {
+        display: block;
+        font-size: 1.5em;
+        border-bottom: 4px solid;
+        width: 1.5em;
+        margin: 0 auto 0.5em;
+      }
+      .question ol > li.correct.highlight, .question ol.horizontal > li.correct.highlight .nr {
+        color: #000 !important;
+      }
+      .question ol > li:nth-of-type(1).correct.highlight {
+        background: #f968ae;
+      }
+      .question ol > li:nth-of-type(2).correct.highlight {
+        background: #c1cd5b;
+      }
+      .question ol > li:nth-of-type(3).correct.highlight {
+        background: #36b94e;
+      }
+      .main-quiz-animation {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 3em;
+        display: flex;
+        justify-content: space-between;
+        transition: opacity 2.5s;
+      }
+      .main-quiz-animation > div {
+        width: 33%;
+        transition: background-color 0.1s;
+      }
+      .fullsize {
+        width: 960px;
+        height: 600px;
+      }
+      .source-link.small {
+        font-size: 0.5em;
+      }
+    </style>
+	</head>
+	<body>
+    <div class="main-quiz-animation">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+		<div class="reveal">
+			<div class="slides">
+        <section>
+          <h1>Hacker*innen-Ethik</h1>
+          <h2>1, 2, oder 3!</h2>
+          <aside class="notes">
+            <p class="s">Hi! Die nächste halbe Stunde steht ganz im Zeichen der Hacker_innen-Ethik.</p>
+            <p class="s">Wer von euch kennt den Begriff schon? – Okay, super! Unser Ziel ist, dass nach dieser halben Stunde alle von euch etwas mit dem Begriff anfangen können. Und weil wir keinen langweiligen Frontalvortrag halten wollen, machen wir stattdessen ein Quiz: Das Hacker_innen-Ethik 1, 2, oder 3 – ah Moment, wir sind ja Hacker_innen, also: Das Hacker_innen-Ethik 1, 10 oder 11!</p>
+          </aside>
+        </section>
+
+        <section>
+          <h1>Hacker*innen-Ethik</h1>
+          <h2>1, 10, oder 11!</h2>
+          <aside class="notes">
+            <p class="i">Wer von euch kennt „1, 2, oder 3“ NICHT? Also, ganz kurz wie das funktioniert: Es gibt zu jeder Frage drei mögliche Antworten. Und hier vorne sind drei Rechtecke am Boden markiert. Sobald wir „1, 2, oder 3!“ sagen, lauft ihr zu dem Rechteck, von dem ihr glaubt, dass es zur richtigen Antwort gehört. Und am besten lauft ihr nicht direkt zu diesem Rechteck, sondern wechselt zuerst noch ein bisschen zwischen allen Rechtecken – um die anderen zu verwirren. Sobald wir dann „Letzte Chance vorbei!“ sagen, bleiben alle stehen – und dann wird aufgelöst, welche Antwort richtig ist.</p>
+            <p class="s">Zwei ganz wichtige Sachen dazu:</p>
+            <p class="s">Erstens: Das ganze ist zwar ein Quiz, aber wie überall bei Jugend hackt werden keine Punkte vergeben, und es geht auch nicht darum, zu gewinnen. Dabeisein – und mitdenken! – ist alles.</p>
+            <p class="s">Zweitens: Seit beim Rumlaufen bitte vorsichtig. Ihr seid viele, und hier ist nicht wahnsinnig viel Platz. Also passt auf, rennt niemanden über den Haufen, und nehmt aufeinander Rücksicht. Wie's beim Chaos Communication Congress immer heißt: Be excellent to each other!</p>
+            <p class="i">Alles klar? Dann gehts jetzt los! Fangen wir mit einer Frage nach der Geschichte an:</p>
+          </aside>
+        </section>
+
+        <section>
+          <section class="question">
+            <h1>Wie ist der Begriff<em>„Hacker*in“</em><br>überhaupt entstanden?</h1>
+            <ol>
+              <li class="fragment">Weil Menschen sich so über Computer geärgert haben, dass sie sie vor Wut mit Äxten kaputt gehackt haben.</li>
+              <li class="fragment correct">Weil Student*innen in ihrer Freizeit Modelleisenbahn gespielt und dabei clevere Lösungen für Probleme gefunden haben.</li>
+              <li class="fragment">Weil man beim Eindringen in gesicherte Systeme virtuelle „Löcher“ in die Firewalls hacken muss.</li>
+            </ol>
+            <div class="fragment quiz-animation"></div><div class="fragment solve"></div>
+          </section>
+          <section>
+            <img data-src="images/tmrc.png" height=550>
+            <p class="source-link small"><a href="http://tmrc.mit.edu/hackers-ref.html">http://tmrc.mit.edu/hackers-ref.html</a></p>
+            <aside class="notes">
+              <p class="s">Tatsächlich ist der Begriff von Student_innen beim Modellbahnspielen geprägt worden: Am MIT (das ist eine große technische Universität in den USA) gibts den „Tech Model Railroad Club“, und dort hat sich in den 50er-Jahren der Begriff „Hacker“ etabliert, und zwar für jemanden „der/die mit Einfallsreichtum eine clevere Lösung findet, einen sogenannten ‚Hack’”.</p>
+              <p class="s">Und auch damals gabs zu dieser Definition eine ganz wichtige Klarstellung: „Menschen, die etwas Illegales tun, sind ganz sicher KEINE echten Hacker_innen, denn sie haben die Hacker_innen-Ethik nicht verstanden.“</p>
+              <p class="i">Die Hacker_innen-Ethik wurde also schon in den 50er-Jahren erstmals erwähnt. Aber was ist das überhaupt? Bzw., noch grundsätzlicher gefragt: Was ist überhaupt „Ethik“?</p>
+            </aside>
+          </section>
+        </section>
+
+        <section>
+          <section class="question">
+            <h1>Was ist <em>„Ethik“</em> überhaupt?</h1>
+            <ol>
+              <li class="fragment correct">Ethik ist ein Teilgebiet der Philosophie, das sich mit dem „richtigen“ Handeln befasst.</li>
+              <li class="fragment">Ethik ist die Lehre vom menschlichen Körper.</li>
+              <li class="fragment">Ethik ist ein Teilgebiet der Informatik, das sich mit der Sicherheit beschäftigt.</li>
+            </ol>
+            <div class="fragment quiz-animation"></div><div class="fragment solve"></div>
+          </section>
+          <section>
+            <iframe class="fullsize" data-src="https://de.wikipedia.org/wiki/Ethik"></iframe>
+            <aside class="notes">
+              <p class="s">Ethik befasst sich mit dem „richtigen“ Handeln. Es gibt dazu einen superlangen Wikipedia-Artikel – aber eigentlich gehts einfach um „Was soll ich tun?“. Also in einer Situation, in der ich verschiedene Möglichkeiten habe zu handeln: Welche Möglichkeit soll ich nehmen? </p>
+              <p class="s">Oft ist das recht einfach zu entscheiden: Wenn die Ampel rot ist, ist es wahrscheinlich sinnvoll, nicht über die Straße zu rennen – auch wenn ich es natürlich tun könnte. Manchmal ist es aber auch sehr schwierig: Wenn auf der anderen Straßenseite gerade jemand um Hilfe ruft – soll ich dann sofort rüberlaufen um zu helfen? Oder trotzdem warten, bis die Ampel grün wird, damit ich mich nicht selbst in Gefahr bringe?</p>
+
+              <p class="i">Das Blöde an der Ethik ist, dass sie uns keine Patentrezepte gibt, um solche Fragen zu beantworten. Im Endeffekt müssen wir immer selbst nachdenken und entscheiden, was für uns in dieser Situation die „richtige“ Entscheidung ist. ABER: Ethik kann uns dabei helfen, indem sie uns zum Beispiel ein paar Leitlinien – Regeln – gibt, an denen wir uns orientieren können.</p>
+              <p class="i">Ethik ist also oft ein Set von Regeln, die uns dabei helfen, wenn wir uns „richtig“ verhalten wollen.</p>
+              <p class="i">Und was ist dann die Hacker_innen-Ethik? Genau, das sind ein paar Regeln, die uns helfen, damit wir uns ALS HACKER_INNEN richtig verhalten können.</p>
+
+              <p class="s">Uff, das war jetzt ganz schön viel Theorie. Zeit für die nächste Frage!</p>
+              <p class="s">In der Hacker_innen-Ethik stehen also Regeln. Aber …</p>
+            </aside>
+          </section>
+        </section>
+
+        <section>
+          <section class="question">
+            <h1>Welche Regel steht <mark>nicht</mark><br>in der Hacker*innen-Ethik?</h1>
+            <ol>
+              <li class="fragment">Computer können dein Leben zum Besseren verändern.</li>
+              <li class="fragment">Der Zugang zu Computern und allem, was einem zeigen kann, wie diese Welt funktioniert, sollte unbegrenzt und vollständig sein.</li>
+              <li class="fragment correct">Setze dich dafür ein, dass es eine zentrale Stelle gibt, die den Umgang mit Sicherheitslücken regelt.</li>
+            </ol>
+            <div class="fragment quiz-animation"></div><div class="fragment solve"></div>
+          </section>
+          <section>
+            <blockquote>„Computer können dein Leben zum Besseren verändern.“</blockquote>
+            <aside class="notes">
+              <p class="i">Also, zu Punkt 1: Ich denke es sitzt in diesem Raum keiner, der Computer nicht gut findet ;) Aber damals in den 80ern war das noch nicht so selbstverständlich, dass man erkennt, dass die Computer das Leben zum Bessern verändern können. Damals waren die Computer noch nicht so praktisch und handlich wie heute. Von Pflegeroboter und Smartphones konnte man nur träumen. Doch die Hacker_innen haben schon in den 80ern erkannt, das man mit dem Computer das Leben verbessern kann – viele Leute haben das damals nämlich ganz anders gesehen und sich vor Computer gefürchtet.</p>
+            </aside>
+          </section>
+          <section>
+            <blockquote>„Der Zugang zu Computern und allem, was einem zeigen kann, wie diese Welt funktioniert, sollte unbegrenzt und vollständig sein.“</blockquote>
+            <aside class="notes">
+              <p class="s">Punkt 2: Ist eigentlich selbstverständlich, oder? Wer würde das nicht wollen? Leider gibts aber doch viele Fälle, der Zugang zu Informationen NICHT frei ist. *TODO: Beispiel* Zum Glück haben das Internet, Wikipedia und Co da in den letzten Jahren schon vieles verbessert – übrigens auch ein Beispiel dafür, wie Computer unser Leben zum Besseren verändern können.</p>
+            </aside>
+          </section>
+          <section>
+            <blockquote><strike>Setze dich dafür ein, dass es eine zentrale Stelle gibt, die den Umgang mit Sicherheitslücken regelt.</strike></blockquote>
+            <blockquote class="fragment">„Misstraue Autoritäten – fördere Dezentralisierung.“</blockquote>
+            <aside class="notes">
+              <p class="i">Aber Punkt 3, der steht NICHT in der Hacker_innen-Ethik: Dort steht nämlich das genaue Gegenteil: „Mißtraue Autoritäten – fördere Dezentralisierung.“ Warum ist das wichtig? *TODO: Beispiel*</p>
+              <p class="i">Okay, jetzt haben wir so viel theoretisches und kompliziertes behandelt – die nächste Frage ist dafür ganz einfach:</p>
+            </aside>
+          </section>
+        </section>
+
+        <section>
+          <section class="question">
+            <h1>Wer ist der/die coolere Hacker*in?</h1>
+            <ol class="horizontal">
+              <li class="fragment"><span class="nr">1</span><img data-src="https://www.digisaurier.de/wp-content/uploads/2018/08/wau.jpg"></li>
+              <li class="fragment"><span class="nr">10</span><img data-src="https://upload.wikimedia.org/wikipedia/commons/d/d8/Hedy_Lamarr_in_The_Heavenly_Body_1944.jpg"></li>
+              <li class="fragment correct"><span class="nr">11</span>Kann man nicht sagen.</li>
+            </ol>
+            <div class="fragment quiz-animation"></div><div class="fragment solve"></div>
+          </section>
+          <section>
+            <iframe class="fullsize" data-src="https://de.m.wikipedia.org/wiki/Wau_Holland"></iframe>
+            <aside class="notes">
+              <p class="s">Ganz schön schwer zu sagen, wer von dennen cooler ist, oder? Doch sagt ein Foto aus, ob wer was drauf hat? Ob wer hacken kann? Ganz sicher nicht!</p>
+              <p class="s">Das Bild 1 zeigt Wau Holland, Gründer des Chaos Computer Club. Ein cooler Hacker, gar keine Frage.</p>
+            </aside>
+          </section>
+          <section>
+            <iframe class="fullsize" data-src="https://de.m.wikipedia.org/wiki/Hedy_Lamarr"></iframe>
+            <aside class="notes">
+              <p class="s">Das Bild 2 zeigt Hedy Lamarr, die war Hollywood-Star … und AUCH Hackerin, Erfinderin: Sie hat nämlich in den 40er Jahren eine Funktechnik entwickelt, das sogenannte „Frequency Hopping“. Und diese Technik wird bis heute verwendet: Bluetooth, GSM – viele aktuelle Funktechniken benutzen dieses Frequency Hopping. Also auch eine ziemlich coole Hackerin, oder?</p>
+            </aside>
+          </section>
+          <section>
+            <blockquote>Beurteile Hacker*innen nach dem, was sie tun, und nicht nach üblichen Kriterien wie Aussehen, Alter, Herkunft, Spezies, Geschlecht oder gesellschaftliche Stellung.</blockquote>
+            <aside class="notes">
+              <p class="s">Deshalb sollen wir andere Hack_innen Hacker_innen NACH DEM, WAS SIE TUN beurteilen – und nicht nach üblichen Kriterien wie Aussehen, Alter, Herkunft, Spezies, Geschlecht oder gesellschaftlicher Stellung. Und genau das steht auch in Hacker_innen-Ethik.</p>
+              <p class="i">Seid ihr noch fit? Zwei Fragen hätten wir noch :-)</p>
+            </aside>
+          </section>
+        </section>
+
+        <section>
+          <section class="question">
+            <h1>Du hast eine Smartwatch bekommen. Beim Rumspielen mit dem Webinterface des Herstellers bemerkst du, dass du auch auf fremde Smartwatches zugreifen und dort die Position auslesen oder das Mikrofon aktivieren kannst. Was machst du jetzt?</h1>
+          </section>
+          <section class="question">
+            <ol>
+              <li class="fragment">Du erzählst niemandem von dieser Sicherheitslücke, damit sie sich nicht verbreitet und womöglich von anderen Menschen ausgenützt wird.</li>
+              <li class="fragment correct">Du bittest Hacker*innen, die Erfahrung mit solchen Fällen haben, dir dabei zu helfen, die Sicherheitslücke zu veröffentlichen, damit möglichst viele Menschen davon erfahren.</li>
+              <li class="fragment">Du suchst mit den Positionsdaten Menschen in deiner Nähe und hörst ihnen über das Mikrofon zu, um herauszufinden, ob jemand dabei ist, den du kennst.</li>
+            </ol>
+            <div class="fragment quiz-animation"></div><div class="fragment solve"></div>
+            <aside class="notes">
+              <p class="s">Also, dass Antwort 3 nicht geht ist logisch, oder? *ACHTUNG: So nur formulieren, wenn niemand diese Antwort gewählt hat!* In der Hacker_innen-Ethik steht dazu „Mülle nicht in den Daten anderer Leute“. Wir lesen ja auch nicht heimlich fremde Tagebücher – und wo sich jemand gerade aufhält, was er oder sie sagt, das sind genauso private Daten, die uns nichts angehen.</p>
+              <p class="s">Warum ist Antwort 1 nicht richtig? Das Problem ist: Vielleicht finden ja auch andere Menschen diese Sicherheitslücke. Und vielleicht sind das dann keine Hacker_innen und halten sich nicht an die Hacker_innen-Ethik, sondern nutzen die Lücke aus, zB um Menschen auszuspionieren. Daher ist es immer gut, wenn Sicherheitslücken bekannt werden – einerseits können dann Betroffene, also Leute, die  diese Smartwatch haben, überlegen, ob sie sie weiter verwenden wollen. Und anderseits steht dann auch der Hersteller unter einem gewissen Druck, die Sicherheitslücke zu schließen.</p>
+              <p class="i">Also: Sicherheitslücken sollte man grundsätzlich bekannt machen. </p>
+              <p class="i">ABER: Macht das bitte nicht alleine. Es gibt nämlich ganz viele mögliche Probleme: Vielleicht nehmen euch die Hersteller nicht ernst, oder noch schlimmer, sie wollen euch verklagen, und so weiter. Aber zum Glück gibts Hacker_innen, die sowas schon oft gemacht haben und wissen, worauf man achten muss. Wie findet man die? Ihr könnt euch zB an die Leute von Jugend hackt wenden. Oder auch an Journalist_innen, zB bei Heise Online oder bei der Futurezone oder beim Standard. Oder an die Hacker_innen beim CCC – während dem Chaos Communication Congress gibts meistens sogar eine Telefonhotline für Hacker_innen, die Sicherheitslücken gefunden haben.</p>
+            </aside>
+          </section>
+          <section>
+            <iframe class="fullsize" data-src="https://jugendhackt.org/wie-gehe-ich-mit-einer-sicherheitsluecke-um-die-ich-entdeckt-habe/"></iframe>
+            <aside class="notes">
+              <p class="i">Es gibt dazu auch einen Beitrag von Linus Neumann auf dem Jugend hackt Blog: https://jugendhackt.org/wie-gehe-ich-mit-einer-sicherheitsluecke-um-die-ich-entdeckt-habe/ – den Link posten wir nachher noch ins Zulip.</p>
+            </aside>
+          </section>
+          <section>
+            <img data-src="images/vidimensio.png" height="550">
+            <p class="source-link small"><a href="https://www.heise.de/newsticker/meldung/Vidimensio-Smartwatches-Der-Sicherheits-Alptraum-geht-weiter-4359967.html">https://www.heise.de/newsticker/meldung/Vidimensio-Smartwatches-Der-Sicherheits-Alptraum-geht-weiter-4359967.html</a></p>
+            <aside class="notes">
+              <p class="i">Übrigens: Diesen beschrieben Fall, also die Smartwatch mit Sicherheitslücke, gabs wirklich. Noch gar nicht lang her.</p>
+              <p class="s">Apropos „gab es wirklich“ – damit kommen wir auch schon zur letzten Frage:</p>
+            </aside>
+          </section>
+        </section>
+
+        <section>
+          <section class="question">
+            <h1>Welcher dieser Hacks hat so<br><mark>nicht</mark> stattgefunden?</h1>
+            <ol>
+              <li class="fragment">Hacker*innen haben alle Gesetze eines Landes, die davor nur gegen eine Abo-Gebühr zugänglich waren, auf einer Website kostenlos veröffentlicht.</li>
+              <li class="fragment correct">Ein Hacker hat mit einem RFID-Empfänger ausgerüstet Briefträger*innen verfolgt, um so ihre RFID-Zutrittsschlüssel auszulesen.</li>
+              <li class="fragment">Hacker*innen haben hinter allen Fenstern eines Hochhauses Lampen installiert und so aus dem Haus ein riesiges Pixel-Display gemacht, auf dem man z.B. Pong spielen konnte.</li>
+            </ol>
+            <div class="fragment quiz-animation"></div><div class="fragment solve"></div>
+          </section>
+          <section>
+            <img data-src="images/gesetze.png" height="550">
+            <p class="source-link small"><a href="https://www.heise.de/newsticker/meldung/Urheberrecht-Open-Knowledge-Foundation-veroeffentlicht-alle-Bundesgesetze-4246696.html">https://www.heise.de/newsticker/meldung/Urheberrecht-Open-Knowledge-Foundation-veroeffentlicht-alle-Bundesgesetze-4246696.html</a></p>
+            <aside class="notes">
+              <p class="i">Das war 2018 in Deutschland, eine Initiative der Open Knowledge Foundation. Die deutschen Gesetzestexte waren bis dahin nämlich tatsächlich NICHT gratis zugänglich – also zumindest nicht in vernünftiger, durchsuchbarer Form. Die wurden stattdessen von einem privaten Verlag auf einer Online-Plattform veröffentlicht, wo man für den Zugang bezahlen musste. </p>
+            </aside>
+          </section>
+          <section>
+            <blockquote>Alle Informationen müssen frei sein.</blockquote>
+            <blockquote class="fragment">Öffentliche Daten nützen, private Daten schützen</blockquote>
+            <aside class="notes">
+              <p class="i">Was hat das mit der Hacker_innen-Ethik zu tun? Naja, dort gibts eine Regel dazu, nämlich „Alle Informationen müssen frei sein.“ Diese Regel allein ist aber gar nicht so toll: Heißt das, dass auch meine privaten Fotos frei sein müssen, für alle zugänglich?</p>
+              <p class="i">Nein, natürlich nicht. Es gibt nämlich auch noch eine zweite Regel dazu: „Öffentliche Daten nützen, private Daten schützen“. Meine Fotos sind private Daten, die müssen geschützt werden. Die Gesetze aber, die sind öffentliche Daten. Die sollten frei und allgemein zugänglich sein, damit sie jede_r nützen kann.</p>
+            </aside>
+          </section>
+          <section>
+            <img data-src="images/rfid.png" height="550">
+            <p class="source-link small"><a href="https://media.ccc.de/v/30C3_-_5334_-_en_-_saal_2_-_201312291400_-_rfid_treehouse_of_horror_-_adrian_dabrowski#t=1966">https://media.ccc.de/v/30C3_-_5334_-_en_-_saal_2_-_201312291400_-_rfid_treehouse_of_horror_-_adrian_dabrowski#t=1966</a></p>
+            <aside class="notes">
+              <p class="s">TODO: Text</p>
+            </aside>
+          </section>
+          <section>
+            <img data-src="https://upload.wikimedia.org/wikipedia/commons/7/75/Project-blinkenlights-aerial-view.jpg" height="550">
+            <aside class="notes">
+              <p class="i">Punkt 3 war das Projekt „Blinkenlights“, das hat 2001 in Berlin stattgefunden: Dort haben Hacker_innen ein leerstehendes Hochaus am Alexanderplatz, also mitten im Stadtzentrum, in ein riesiges Pixel-Display verwandelt. Da wurden dann verschiedene Animationen angezeigt, Emojis.</p>
+            </aside>
+          </section>
+          <section>
+            <video height="500" data-autoplay>
+              <source data-src="https://upload.wikimedia.org/wikipedia/commons/4/49/MVI_1721_no-audio.ogv">
+            </video>
+            <aside class="notes">
+              <p class="i">Und man konnte sogar mit dem Handy eine Telefonnummer anrufen und dann mit der Tastatur Pong spielen – mobiles Internet am Handy gabs damals noch gar nicht.</p>
+              <p class="i">Und, das wird jetzt vielleicht einige von euch überraschen: Auch zu diesem Hack gibts einen Punkt in der Hacker_innen-Ethik: „Man kann mit einem Computer Kunst und Schönheit schaffen.“ Computer – und Technik ganz allgemein – sind nicht immer nur technisch, immer nur praktisch, immer nur effizient – man kann so viel mehr damit machen, kreative Dinge, inspirierende Dinge, schöne Dinge. Auch das gehört zur Hacker_innen-Ethik.</p>
+            </aside>
+          </section>
+        </section>
+        <section class="question">
+          <h1>Die Hacker*innen-Ethik</h1>
+          <ul>
+            <li>Der Zugang zu Computern und allem, was einem zeigen kann, wie diese Welt funktioniert, sollte unbegrenzt und vollständig sein.</li>
+            <li>Alle Informationen müssen frei sein.</li>
+            <li>Mißtraue Autoritäten – fördere Dezentralisierung.</li>
+            <li>Beurteile einen Hacker nach dem, was er tut, und nicht nach üblichen Kriterien wie Aussehen, Alter, Herkunft, Spezies, Geschlecht oder gesellschaftliche Stellung.</li>
+            <li>Man kann mit einem Computer Kunst und Schönheit schaffen.</li>
+            <li>Computer können dein Leben zum Besseren verändern.</li>
+            <li>Mülle nicht in den Daten anderer Leute.</li>
+            <li>Öffentliche Daten nützen, private Daten schützen.</li>
+          </ul>
+          <aside class="notes">
+            <p class="s">So, das wars! Hier haben wir nochmal die gesamte Hacker_innen-Ethik aufgeschrieben. Und da ihr nun wisst, was einen Hacker ausmacht, seid ihr dieses Wochenende gefragt: Wie ihr mit Code die (Um)welt verbessern könnt. Happy Hacking!</p>
+          </aside>
+        </section>
+        <section>
+          <h1>Happy Hacking!</h1>
+        </section>
+			</div>
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+      const quizAnimationEl = document.querySelector(".main-quiz-animation")
+      let quizAnimationInterval;
+
+      function startQuizAnimation() {
+        const bars = quizAnimationEl.querySelectorAll("div")
+        quizAnimationEl.style.display = "flex"
+        quizAnimationInterval = setInterval(function() {
+          bars[0].style.backgroundColor = `hsl(331, 92%, ${Math.floor(Math.random() * 100)}%)`
+          bars[1].style.backgroundColor = `hsl(66, 53%,  ${Math.floor(Math.random() * 100)}%)`
+          bars[2].style.backgroundColor = `hsl(131, 55%, ${Math.floor(Math.random() * 100)}%)`
+        }, 100)
+      }
+
+      function stopQuizAnimation() {
+        quizAnimationEl.style.opacity = 0
+        clearInterval(quizAnimationInterval)
+        setTimeout(() => {
+          quizAnimationEl.style.opacity = 1
+          quizAnimationEl.style.display = "none"
+        }, 3000)
+      }
+
+			Reveal.initialize({
+        controls: false,
+      	controlsTutorial: false,
+        hash: true,
+        progress: false,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true }
+				]
+			})
+
+      Reveal.addEventListener('fragmentshown', function(event) {
+        if (event.fragment.classList.contains("solve")) {
+          const correctAnswer = Reveal.getCurrentSlide().querySelector(".fragment.correct")
+          stopQuizAnimation()
+          setTimeout(() => { correctAnswer.classList.add("highlight") }, 2500)
+        }
+
+        if (event.fragment.classList.contains("quiz-animation")) {
+          startQuizAnimation()
+        } else {
+        }
+      })
+		</script>
+	</body>
+</html>
