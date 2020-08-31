@@ -1,18 +1,21 @@
-# Hacker*innen-Ethik 1, 2, oder 3
-## Jugend hackt Linz 2019
+# Hacker Ethic
 
-Online-Version: https://noniq.at/talks/2019-10-hackerethik-quiz-jh-linz/
+<blockquote>
+  Note: This is the version from <strong>Jugend hackt AT 2020</strong>. The original version (in german) used at <strong>Jugend hackt Linz 2019</strong> can be found here: <a href="https://github.com/Jugendhackt/hackerethik-quiz-linz-2019/tree/master">https://github.com/Jugendhackt/hackerethik-quiz-linz-2019/tree/master</a>
+</blockquote>
 
-Zum Weiterentwickeln / Anpassen:
+## Jugend hackt AT 2020
 
- * Repo klonen oder exportieren.
- * `index.html` bearbeiten
- * Doku: https://github.com/hakimel/reveal.js
- 
-Zum lokalen Testen der Slides einfach `index.html` im Browser öffnen.
+### Links / Downloads
 
-Falls auch Speaker-Notes und ähnliche Features getestet werden sollen, muss ein lokaler HTTP-Server gestartet werden, zB mit Ruby (`ruby -run -e httpd`). 
+Online version: https://noniq.at/talks/2020-08-hacker-ethic-jh-at
 
-Achtung: Die notwendigen npm-Module, um den Server mit `npm install && npm start` starten zu könnnen, sind in diesem Repo **nicht** enthalten.
+Download as PDF: https://noniq.at/talks/2020-08-hacker-ethic-jh-at/Hacker%20Ethic%20-%20Jugend%20hackt%20AT%202020.pdf
 
-Die npm-Module für das Server-Side-Speaker-Notes sind allerdings enthalten, `npm install && node plugin/notes-server` funktioniert.
+###  Development
+
+This presentation is based on [reveal.js](https://github.com/hakimel/reveal.js).
+
+To modify it, clone (or export) this repo and edit `index.html`. Open `index.html` in your browser to see your changes.
+
+Note: This repo **does not** contain the npm modules necessary for starting a local server. Either add them to `package.json` manually, or use a static server like the ones built into Ruby (`ruby -run -e httpd`) or Python (`python3 -m http.server`).
