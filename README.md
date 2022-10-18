@@ -1,12 +1,10 @@
 # Hacker*innen-Ethik 1, 2, oder 3
 
-<blockquote>
-  Note: This is the version from <strong>Jugend hackt Linz 2019</strong>. An updated version (in english) was used at <strong>Jugend hackt AT 2020</strong>, it can be found here: <a href="https://github.com/Jugendhackt/hackerethik-quiz-linz-2019/tree/jh-at-2020">https://github.com/Jugendhackt/hackerethik-quiz-linz-2019/tree/jh-at-2020</a>
-</blockquote>
+## Jugend hackt Linz 2022
 
-## Jugend hackt Linz 2019
+**ACHTUNG: Work in Progress!**
 
-Online-Version: https://noniq.at/talks/2019-10-hackerethik-quiz-jh-linz/
+Online-Version: https://noniq.at/talks/2022-10-hackerethik-quiz-jh-linz/
 
 Zum Weiterentwickeln / Anpassen:
 
@@ -20,4 +18,9 @@ Falls auch Speaker-Notes und ähnliche Features getestet werden sollen, muss ein
 
 Achtung: Die notwendigen npm-Module, um den Server mit `npm install && npm start` starten zu könnnen, sind in diesem Repo **nicht** enthalten.
 
-Die npm-Module für das Server-Side-Speaker-Notes sind allerdings enthalten, `npm install && node plugin/notes-server` funktioniert.
+Die npm-Module für **Server-Side-Speaker-Notes** sind allerdings enthalten, `npm install && node plugin/notes-server` funktioniert.
+
+## Ältere Versionen
+
+  * <a href="https://github.com/Jugendhackt/hackerethik-quiz-linz-2019/tree/jh-at-2020">Jugend hackt Linz 2020 (englisch)</a>
+  * <a href="https://github.com/Jugendhackt/hackerethik-quiz-linz-2019/tree/jh-at-2019">Jugend hackt Linz 2019</a>
