@@ -141,9 +141,9 @@
   </head>
   <body>
     <div class="main-quiz-animation">
-      <div></div>
-      <div></div>
-      <div></div>
+      <div><img src="images/alpaka.png" height="120"></div>
+      <div><img src="images/gorilla.jpg" height="120"></div>
+      <div><img src="images/space_invadar.png" height="120"></div>
     </div>
     <div class="reveal">
       <div class="slides">
@@ -201,6 +201,7 @@
           </section>
           <section>
             <img data-src="images/ethik.png" height="600">
+            
             <aside class="notes">
               <p class="s">Ethik befasst sich mit dem „richtigen“ Handeln. Es gibt dazu einen superlangen Wikipedia-Artikel – aber eigentlich gehts einfach um „Was soll ich tun?“. Also in einer Situation, in der ich verschiedene Möglichkeiten habe zu handeln: Welche Möglichkeit soll ich nehmen? </p>
               <p class="s">Oft ist das recht einfach zu entscheiden: Wenn die Ampel rot ist, ist es wahrscheinlich sinnvoll, nicht über die Straße zu rennen – auch wenn ich es natürlich tun könnte. Manchmal ist es aber auch sehr schwierig: Wenn auf der anderen Straßenseite gerade jemand um Hilfe ruft – soll ich dann sofort rüberlaufen um zu helfen? Oder trotzdem warten, bis die Ampel grün wird, damit ich mich nicht selbst in Gefahr bringe?</p>
@@ -426,14 +427,12 @@
     <script>
       const quizAnimationEl = document.querySelector(".main-quiz-animation")
       let quizAnimationInterval;
+      quizAnimationEl.style.display = "none"
 
       function startQuizAnimation() {
         const bars = quizAnimationEl.querySelectorAll("div")
         quizAnimationEl.style.display = "flex"
       
-        bars[0].appendChild(createImage("images/alpaka.png"))
-        bars[1].appendChild(createImage("images/gorilla.jpg"))
-        bars[2].appendChild(createImage("images/space_invadar.png"))
         quizAnimationInterval = setInterval(function() {
           bars[0].style.backgroundColor = `hsl(331, 92%, ${Math.floor(Math.random() * 100)}%)`
           bars[1].style.backgroundColor = `hsl(66, 53%,  ${Math.floor(Math.random() * 100)}%)`
@@ -448,13 +447,6 @@
           quizAnimationEl.style.opacity = 1
           quizAnimationEl.style.display = "none"
         }, 3000)
-      }
-
-      function createImage(name) {
-        let img = document.createElement('img');
-        img.src = name;
-        img.height = 120;
-        return img;
       }
 
       Reveal.initialize({
