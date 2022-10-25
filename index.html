@@ -118,7 +118,7 @@
         left: 0;
         top: 0;
         width: 100vw;
-        height: 3em;
+        height: 10em;
         display: flex;
         justify-content: space-between;
         transition: opacity 2.5s;
@@ -126,6 +126,9 @@
       .main-quiz-animation > div {
         width: 33%;
         transition: background-color 0.1s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
       .fullsize {
         width: 960px;
@@ -427,6 +430,10 @@
       function startQuizAnimation() {
         const bars = quizAnimationEl.querySelectorAll("div")
         quizAnimationEl.style.display = "flex"
+      
+        bars[0].appendChild(createImage("images/alpaka.png"))
+        bars[1].appendChild(createImage("images/gorilla.jpg"))
+        bars[2].appendChild(createImage("images/space_invadar.png"))
         quizAnimationInterval = setInterval(function() {
           bars[0].style.backgroundColor = `hsl(331, 92%, ${Math.floor(Math.random() * 100)}%)`
           bars[1].style.backgroundColor = `hsl(66, 53%,  ${Math.floor(Math.random() * 100)}%)`
@@ -441,6 +448,13 @@
           quizAnimationEl.style.opacity = 1
           quizAnimationEl.style.display = "none"
         }, 3000)
+      }
+
+      function createImage(name) {
+        let img = document.createElement('img');
+        img.src = name;
+        img.height = 120;
+        return img;
       }
 
       Reveal.initialize({
