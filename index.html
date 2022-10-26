@@ -201,7 +201,7 @@
           </section>
           <section>
             <img data-src="images/ethik.png" height="600">
-            
+
             <aside class="notes">
               <p class="s">Ethik befasst sich mit dem „richtigen“ Handeln. Es gibt dazu einen superlangen Wikipedia-Artikel – aber eigentlich gehts einfach um „Was soll ich tun?“. Also in einer Situation, in der ich verschiedene Möglichkeiten habe zu handeln: Welche Möglichkeit soll ich nehmen? </p>
               <p class="s">Oft ist das recht einfach zu entscheiden: Wenn die Ampel rot ist, ist es wahrscheinlich sinnvoll, nicht über die Straße zu rennen – auch wenn ich es natürlich tun könnte. Manchmal ist es aber auch sehr schwierig: Wenn auf der anderen Straßenseite gerade jemand um Hilfe ruft – soll ich dann sofort rüberlaufen um zu helfen? Oder trotzdem warten, bis die Ampel grün wird, damit ich mich nicht selbst in Gefahr bringe?</p>
@@ -256,20 +256,27 @@
 
         <section>
           <section class="question">
-            <h1>Wer ist der/die coolste Hacker*in?</h1>
-            <ol class="horizontal">
-              <li class="fragment"><span class="nr">1</span><img data-src="images/wau_telefonzelle.jpg"></li>
-              <li class="fragment"><span class="nr">10</span><img data-src="images/Lilith_Wittmann_L1009494.jpg"></li>
-              <li class="fragment"><span class="nr">11</span><img data-src="images/Hedy_Lamarr_in_The_Heavenly_Body_1944.jpg"></li>
+            <h1>
+              Wie viele dieser Personen sind Hacker*innen?
+              <span style="display: flex; width: 75%; justify-content: space-between; margin: 0.5em auto 1em">
+                <img style="width: 25%" data-src="images/Wau_Holland.jpg">
+                <img style="width: 25%" data-src="images/Lilith_Wittmann.jpg">
+                <img style="width: 25%" data-src="images/Hedy_Lamarr.jpg">
+              </span>
+            </h1>
+            <ol>
+              <li class="fragment">Eine Person davon ist ein*e Hacker*in</li>
+              <li class="fragment">Zwei Personen sind Hacker*innen</li>
+              <li class="fragment correct">Alle drei sind Hacker*innen</li>
             </ol>
             <div class="fragment quiz-animation"></div><div class="fragment solve"></div>
           </section>
           <section>
-            <img data-src="images/wau_holland.png" height="500">
+            <img data-src="images/wau_holland_wikipedia.png" height="500">
             <p class="source-link small"><a href="https://de.wikipedia.org/wiki/Wau_Holland">https://de.wikipedia.org/wiki/Wau_Holland</a></p>
             <aside class="notes">
-              <p class="s">Ganz schön schwer zu sagen, wer von dennen cooler ist, oder? Doch sagt ein Foto aus, ob wer was drauf hat? Ob wer hacken kann? Ganz sicher nicht!</p>
-              <p class="s">Das Bild 1 zeigt Wau Holland, Gründer des Chaos Computer Club. Ein cooler Hacker, gar keine Frage.</p>
+              <p class="s">Tatsächlich sind das alles Hacker*innen! Also:</p>
+              <p class="s">Der Erste ist Wau Holland. Er hat den Chaos Computer Clubs mitgegründet, und er war am sogenannten „BTX-Hack“ beteiligt – das war der erste Hack, der groß durch die deutschsprachigen Medien gegangen ist.</p>
             </aside>
           </section>
           <section>
@@ -281,18 +288,18 @@
             </aside>
           </section>
           <section>
-            <img data-src="images/hedy_lamarr.png" height="500">
+            <img data-src="images/hedy_lamarr_wikipedia.png" height="500">
             <p class="source-link small"><a href="https://de.wikipedia.org/wiki/Hedy_Lamarr">https://de.wikipedia.org/wiki/Hedy_Lamarr</a></p>
             <aside class="notes">
-              <p class="s">Das Bild 3 zeigt Hedy Lamarr, die war Hollywood-Star … und AUCH Hackerin, Erfinderin: Sie hat nämlich in den 40er Jahren eine Funktechnik entwickelt, das sogenannte „Frequency Hopping“. Und diese Technik wird bis heute verwendet: Bluetooth, GSM – viele aktuelle Funktechniken benutzen dieses Frequency Hopping. Also auch eine ziemlich coole Hackerin, oder?</p>
+              <p class="s">Das dritte Bild zeigt Hedy Lamarr, die war Schauspielerin <em>und</em> Erfinderin. Sie hat in den 1940er Jahren an einer Funktechnik geforscht, die so ähnlich auch noch heute verwendet wird, zB bei Bluetooth oder GSM. Hätte es damals schon den Begriff „Hacker“ gegeben, wäre sie sicher so genannt worden.</p>
+              <p class="s">Wir haben hier also drei ganz unterschiedliche Personen, mit unterschiedlicher Geschichte, unterschiedlichem Aussehen, unterschiedlichem Alter … und trotzdem sind sie aller Hacker*innen.</p>
             </aside>
           </section>
           <section>
             <h2>Hacker*innen-Ethik</h2>
             <blockquote class="ethik">Beurteile Hacker*innen nach dem, was sie tun, und nicht nach üblichen Kriterien wie Aussehen, Alter, Herkunft, Spezies, Geschlecht oder gesellschaftliche Stellung.</blockquote>
             <aside class="notes">
-              <p class="s">Deshalb sollen wir andere Hack_innen Hacker_innen NACH DEM, WAS SIE TUN beurteilen – und nicht nach üblichen Kriterien wie Aussehen, Alter, Herkunft, Spezies, Geschlecht oder gesellschaftlicher Stellung. Und genau das steht auch in Hacker_innen-Ethik.</p>
-              <p class="i">Leider war das jetzt die letzte Frage. Ihr dürft euch wieder hinsetzten.</p>
+              <p class="s">Deshalb sollen wir andere Hacker*innen danach beurteilen, <em>was sie tun</em> – und nicht nach Kriterien wie Aussehen, Alter, Herkunft, Spezies, Geschlecht oder gesellschaftlicher Stellung. Und genau das steht auch in Hacker*innen-Ethik.</p>
             </aside>
           </section>
         </section>
@@ -433,7 +440,7 @@
       function startQuizAnimation() {
         const bars = quizAnimationEl.querySelectorAll("div")
         quizAnimationEl.style.display = "flex"
-      
+
         quizAnimationInterval = setInterval(function() {
           bars[0].style.backgroundColor = `hsl(331, 92%, ${Math.floor(Math.random() * 100)}%)`
           bars[1].style.backgroundColor = `hsl(66, 53%,  ${Math.floor(Math.random() * 100)}%)`
