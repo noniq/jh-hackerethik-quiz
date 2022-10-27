@@ -40,8 +40,8 @@
         margin-bottom: 0.25em;
       }
       .question h1 {
-        font-size: 1em;
-        margin-bottom: 0px;
+        font-size: 1.1em;
+        margin-bottom: 0.75em;
       }
       .question h1 mark {
         background: #2aabe1;
@@ -50,56 +50,61 @@
 /*        text-transform: uppercase;*/
       }
       .question ol {
-        list-style: symbols("1 |" "10 |" "11 |");
-        margin-left: 2em;
+        list-style: none;
+        margin-left: 0;
         font-size: 0.75em;
       }
       .question ol > li {
-        padding: 0.5em;
-        transition: background 0.5s cubic-bezier(.19, .66, .72, 1.52) !important;
-        transition: color 0.5s cubic-bezier(.19, .66, .72, 1.52) !important;
+        padding: 0.5em 0.5em 0.5em 3em;
+        transition: all 0.5s cubic-bezier(.19, .66, .72, 1.52) !important;
+        border-radius: 1.05em;
         background: transparent;
+        position: relative;
       }
-      .question ol > li::marker {
-        font-weight: bold;
+      :root {
+        --bullet-1-scale: 1;
+        --bullet-2-scale: 1;
+        --bullet-3-scale: 1;
       }
-      .question ol > li:nth-child(1)::marker, .question ol.horizontal > li:nth-child(1) .nr {
-        color: #f968ae;
-      }
-      .question ol > li:nth-child(2)::marker, .question ol.horizontal > li:nth-child(2) .nr {
-        color: #c1cd5b;
-      }
-      .question ol > li:nth-child(3)::marker, .question ol.horizontal > li:nth-child(3) .nr {
-        color: #36b94e;
-      }
-      .question ol.horizontal {
-        display: flex;
-        justify-content: space-between;
-        margin-left: 0;
-        list-style: none;
-      }
-      .question ol.horizontal > li {
-        width: 25%;
-        margin-top: 0;
-        text-align: center;
-      }
-      .question ol.horizontal .nr {
+      .question ol > li::before {
+        content: "";
         display: block;
-        font-size: 1.5em;
-        border-bottom: 4px solid;
-        width: 1.4em;
-        margin: 0 auto 0.5em;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 2.1em;
+        height: 2.1em;
+        background-size: cover;
+        transition: all 0.5s ease-in;
       }
-      .question ol > li.correct.highlight, .question ol.horizontal > li.correct.highlight .nr {
+      .question ol.solved > li::before {
+        display: none;
+      }
+      .question ol.solved > li.correct::before {
+        display: block;
+      }
+      .question ol > li:nth-child(1)::before {
+        background-image: url(images/bullet-1@2x.png);
+        transform: scale(var(--bullet-1-scale));
+      }
+      .question ol > li:nth-child(2)::before {
+        background-image: url(images/bullet-2@2x.png);
+        transform: scale(var(--bullet-2-scale));
+      }
+      .question ol > li:nth-child(3)::before {
+        background-image: url(images/bullet-3@2x.png);
+        transform: scale(var(--bullet-3-scale));
+      }
+      .question ol.solved > li.correct {
         color: #000 !important;
       }
-      .question ol > li:nth-of-type(1).correct.highlight {
+      .question ol.solved > li:nth-of-type(1).correct {
         background: #f968ae;
       }
-      .question ol > li:nth-of-type(2).correct.highlight {
+      .question ol.solved > li:nth-of-type(2).correct {
         background: #c1cd5b;
       }
-      .question ol > li:nth-of-type(3).correct.highlight {
+      .question ol.solved > li:nth-of-type(3).correct {
         background: #36b94e;
       }
       blockquote.ethik {
@@ -113,23 +118,6 @@
         float: left;
         margin-left: -0.7em;
       }
-      .main-quiz-animation {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100vw;
-        height: 10em;
-        display: flex;
-        justify-content: space-between;
-        transition: opacity 2.5s;
-      }
-      .main-quiz-animation > div {
-        width: 33%;
-        transition: background-color 0.1s;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
       .fullsize {
         width: 960px;
         height: 600px;
@@ -140,32 +128,33 @@
     </style>
   </head>
   <body>
-    <div class="main-quiz-animation">
-      <div><img src="images/alpaca.png" height="120"></div>
-      <div><img src="images/gorilla.png" height="120"></div>
-      <div><img src="images/invader.png" height="120"></div>
-    </div>
     <div class="reveal">
       <div class="slides">
         <section>
-          <h1>Hacker*innen-Ethik</h1>
-          <h2 class="fragment">1, 2, oder 3!</h2>
-          <aside class="notes">
-            <p class="s">Hi! Die nächste halbe Stunde steht ganz im Zeichen der Hacker_innen-Ethik.</p>
-            <p class="s">Wer von euch kennt den Begriff schon? – Okay, super! Unser Ziel ist, dass nach dieser halben Stunde alle von euch etwas mit dem Begriff anfangen können. Und weil wir keinen langweiligen Frontalvortrag halten wollen, machen wir stattdessen ein Quiz: Das Hacker_innen-Ethik 1, 2, oder 3 – ah Moment, wir sind ja Hacker_innen, also: Das Hacker_innen-Ethik 1, 10 oder 11!</p>
-          </aside>
-        </section>
+          <section>
+            <h1>Hacker*innen-Ethik</h1>
+            <h2 class="fragment" style="height: 3em">1, 2, oder 3!</h2>
+            <aside class="notes">
+              <p class="s">So, jetzt gehts um Hacker*innen-Ethik. Klingt langweilig? Ist es auch … oder wäre es zumindest, wenn wir da jetzt eine halbe Stunde Frontalunterricht machen würden.</p>
+              <p class="s">Deswegen machen wir das nicht so, sondern … machen ein Quiz!</p>
+              <p class="s">Die meisten von euch kennen wahrscheinlich „1, 2 oder 3“? Wir machen das so ähnlich, aber weil wir bei Jugend hackt sind, nehmen wir statt 1, 2 und 3 lieber Alpaka, Gorilla und Space Invader!</p>
+            </aside>
+          </section>
 
-        <section>
-          <h1>Hacker*innen-Ethik</h1>
-          <h2>1, 10, oder 11!</h2>
-          <aside class="notes">
-            <p class="i">Wer von euch kennt „1, 2, oder 3“ NICHT? Also, ganz kurz wie unsere abgeänderte Version funktioniert: Es gibt zu jeder Frage drei mögliche Antworten. Und hier im Raum gibt es 3 Zonen (Alpaka, Gorilla und Space Invadar). Sobald wir „Alpaka, Gorilla oder Space Invadar!“ sagen, lauft ihr zum Tier, von dem ihr glaubt, dass es zur richtigen Antwort gehört. Sobald wir dann „Letzte Chance vorbei!“ sagen, bleiben alle stehen – und dann wird aufgelöst, welche Antwort richtig ist.</p>
-            <p class="s">Zwei ganz wichtige Sachen dazu:</p>
-            <p class="s">Erstens: Das ganze ist zwar ein Quiz, aber wie überall bei Jugend hackt werden keine Punkte vergeben, und es geht auch nicht darum, zu gewinnen. Dabeisein – und mitdenken! – ist alles.</p>
-            <p class="s">Zweitens: Seit beim Rumlaufen bitte vorsichtig. Ihr seid viele, und hier ist nicht wahnsinnig viel Platz. Also passt auf, rennt niemanden über den Haufen, und nehmt aufeinander Rücksicht. Wie's beim Chaos Communication Congress immer heißt: Be excellent to each other!</p>
-            <p class="i">Alles klar? Dann gehts jetzt los! Fangen wir mit einer Frage nach der Geschichte an:</p>
-          </aside>
+          <section>
+            <h2 style="height: 3em">
+              <img src="images/bullet-1@2x.png" style="background: transparent; border: none; width: 3em; display: inline-block; margin: 0 0.5em">
+              <img src="images/bullet-2@2x.png" style="background: transparent; border: none; width: 3em; display: inline-block; margin: 0 0.5em">
+              <img src="images/bullet-3@2x.png" style="background: transparent; border: none; width: 3em; display: inline-block; margin: 0 0.5em">
+            </h2>
+            <aside class="notes">
+              <p class="i">Also, ganz kurz wie unsere abgeänderte Version funktioniert: Es gibt zu jeder Frage drei mögliche Antworten. Und hier im Raum gibt es 3 Zonen (Alpaka, Gorilla und Space Invader). Sobald wir „Alpaka, Gorilla oder Space Invader!“ sagen, lauft ihr zum Tier, von dem ihr glaubt, dass es zur richtigen Antwort gehört. Sobald wir dann „Letzte Chance vorbei!“ sagen, bleiben alle stehen – und dann wird aufgelöst, welche Antwort richtig ist.</p>
+              <p class="s">Zwei ganz wichtige Sachen dazu:</p>
+              <p class="s">Erstens: Das ganze ist zwar ein Quiz, aber wie überall bei Jugend hackt werden keine Punkte vergeben, und es geht auch nicht darum, zu gewinnen. Dabeisein – und mitdenken! – ist alles.</p>
+              <p class="i">Zweitens: Seit beim Rumlaufen bitte vorsichtig. Ihr seid viele, und hier ist nicht wahnsinnig viel Platz. Also passt auf, rennt niemanden über den Haufen, und nehmt aufeinander Rücksicht. Wie's beim Chaos Communication Congress immer heißt: Be excellent to each other!</p>
+              <p class="i">Alles klar? Dann gehts jetzt los! Fangen wir mit einer Frage nach der Geschichte an:</p>
+            </aside>
+          </section>
         </section>
 
         <section>
@@ -442,28 +431,34 @@
     <script src="js/reveal.js"></script>
 
     <script>
-      const quizAnimationEl = document.querySelector(".main-quiz-animation")
-      let quizAnimationInterval;
-      quizAnimationEl.style.display = "none"
+      let quizAnimationRunning = false
 
       function startQuizAnimation() {
-        const bars = quizAnimationEl.querySelectorAll("div")
-        quizAnimationEl.style.display = "flex"
+        let start, bulletScaleLastSetAt
+        let bulletIndex = 1
 
-        quizAnimationInterval = setInterval(function() {
-          bars[0].style.backgroundColor = `hsl(331, 92%, ${Math.floor(Math.random() * 100)}%)`
-          bars[1].style.backgroundColor = `hsl(66, 53%,  ${Math.floor(Math.random() * 100)}%)`
-          bars[2].style.backgroundColor = `hsl(131, 55%, ${Math.floor(Math.random() * 100)}%)`
-        }, 100)
+        function step(time) {
+          if (start === undefined) start = time
+          const elapsed = time - start
+
+          if (bulletScaleLastSetAt === undefined || time - bulletScaleLastSetAt > 200) {
+            bulletScaleLastSetAt = time
+            document.documentElement.style.setProperty(`--bullet-${bulletIndex}-scale`, Math.floor(elapsed / 600) % 2 == 0 ? 1.5 : 1)
+            bulletIndex += 1
+            if (bulletIndex > 3) bulletIndex = 1
+          }
+          if (quizAnimationRunning) requestAnimationFrame(step)
+        }
+
+        quizAnimationRunning = true
+        requestAnimationFrame(step)
       }
 
       function stopQuizAnimation() {
-        quizAnimationEl.style.opacity = 0
-        clearInterval(quizAnimationInterval)
-        setTimeout(() => {
-          quizAnimationEl.style.opacity = 1
-          quizAnimationEl.style.display = "none"
-        }, 3000)
+        quizAnimationRunning = false
+        document.documentElement.style.setProperty('--bullet-1-scale', 1)
+        document.documentElement.style.setProperty('--bullet-2-scale', 1)
+        document.documentElement.style.setProperty('--bullet-3-scale', 1)
       }
 
       Reveal.initialize({
@@ -483,9 +478,9 @@
 
       Reveal.addEventListener('fragmentshown', function(event) {
         if (event.fragment.classList.contains("solve")) {
-          const correctAnswer = Reveal.getCurrentSlide().querySelector(".fragment.correct")
           stopQuizAnimation()
-          setTimeout(() => { correctAnswer.classList.add("highlight") }, 2500)
+          const questionList = Reveal.getCurrentSlide().querySelector(".question ol")
+          setTimeout(() => { questionList.classList.add("solved") }, 1500)
         }
 
         if (event.fragment.classList.contains("quiz-animation")) {
