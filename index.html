@@ -61,11 +61,6 @@
         background: transparent;
         position: relative;
       }
-      :root {
-        --bullet-1-scale: 1;
-        --bullet-2-scale: 1;
-        --bullet-3-scale: 1;
-      }
       .question ol > li::before {
         content: "";
         display: block;
@@ -75,7 +70,11 @@
         width: 2.1em;
         height: 2.1em;
         background-size: cover;
-        transition: all 0.5s ease-in;
+        transition: all 0.5s ease-out;
+        transform: scale(1);
+      }
+      .question ol.animating > li::before {
+        animation: 0.4s infinite alternate cubic-bezier(0.25, 0.46, 0.45, 0.94) bulletAnimation;
       }
       .question ol.solved > li::before {
         display: none;
@@ -85,15 +84,14 @@
       }
       .question ol > li:nth-child(1)::before {
         background-image: url(images/bullet-1@2x.png);
-        transform: scale(var(--bullet-1-scale));
       }
       .question ol > li:nth-child(2)::before {
         background-image: url(images/bullet-2@2x.png);
-        transform: scale(var(--bullet-2-scale));
+        animation-delay: 0.2s;
       }
       .question ol > li:nth-child(3)::before {
         background-image: url(images/bullet-3@2x.png);
-        transform: scale(var(--bullet-3-scale));
+        animation-delay: 0.1s;
       }
       .question ol.solved > li.correct {
         color: #000 !important;
@@ -106,6 +104,10 @@
       }
       .question ol.solved > li:nth-of-type(3).correct {
         background: #36b94e;
+      }
+      @keyframes bulletAnimation {
+        0% { transform: scale(1) }
+        100% { transform: scale(1.66) }
       }
       blockquote.ethik {
         text-align: left;
@@ -484,36 +486,6 @@
     <script src="js/reveal.js"></script>
 
     <script>
-      let quizAnimationRunning = false
-
-      function startQuizAnimation() {
-        let start, bulletScaleLastSetAt
-        let bulletIndex = 1
-
-        function step(time) {
-          if (start === undefined) start = time
-          const elapsed = time - start
-
-          if (bulletScaleLastSetAt === undefined || time - bulletScaleLastSetAt > 200) {
-            bulletScaleLastSetAt = time
-            document.documentElement.style.setProperty(`--bullet-${bulletIndex}-scale`, Math.floor(elapsed / 600) % 2 == 0 ? 1.5 : 1)
-            bulletIndex += 1
-            if (bulletIndex > 3) bulletIndex = 1
-          }
-          if (quizAnimationRunning) requestAnimationFrame(step)
-        }
-
-        quizAnimationRunning = true
-        requestAnimationFrame(step)
-      }
-
-      function stopQuizAnimation() {
-        quizAnimationRunning = false
-        document.documentElement.style.setProperty('--bullet-1-scale', 1)
-        document.documentElement.style.setProperty('--bullet-2-scale', 1)
-        document.documentElement.style.setProperty('--bullet-3-scale', 1)
-      }
-
       Reveal.initialize({
         controls: false,
         controlsTutorial: false,
@@ -530,14 +502,15 @@
       })
 
       Reveal.addEventListener('fragmentshown', function(event) {
-        if (event.fragment.classList.contains("solve")) {
-          stopQuizAnimation()
           const questionList = Reveal.getCurrentSlide().querySelector(".question ol")
+
+        if (event.fragment.classList.contains("solve")) {
+          questionList.classList.remove("animating")
           setTimeout(() => { questionList.classList.add("solved") }, 1500)
         }
 
         if (event.fragment.classList.contains("quiz-animation")) {
-          startQuizAnimation()
+          questionList.classList.add("animating")
         } else {
         }
       })
