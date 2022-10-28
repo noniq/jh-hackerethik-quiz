@@ -125,6 +125,22 @@
       .source-link.small {
         font-size: 0.5em;
       }
+      .final-message {
+        position: absolute;
+        right: -3%;
+        bottom: 5%;
+        transform: rotate(335deg);
+        font-size: 3em;
+        font-weight: bold;
+        color: #f968ae;
+        text-shadow: 0 0 10px #000;
+        transition: all 0.5s cubic-bezier(0.42, 0, 0.09, 2.6) !important;
+        scale: 0;
+        border-radius: 2em;
+      }
+      .final-message.visible {
+        scale: 1;
+      }
     </style>
   </head>
   <body>
@@ -454,11 +470,12 @@
             <li>Mülle nicht in den Daten anderer Leute.</li>
             <li>Öffentliche Daten nützen, private Daten schützen.</li>
           </ul>
+          <div class="fragment final-message">Viel Spaß!</div>
           <aside class="notes">
             <p class="s">Zum Abschluss haben wir hier nochmal alle Punkte zusammengefasst.</p>
             <p class="s">Wann immer ihr in Zukunft hackt – nicht nur hier an diesem Wochenende, sondern auch danach: Denkt an die Hacker*innen-Ethik. Denn am Ende wollen wir ja alle dasselbe:</p>
             <p class="i">Wir wollen mit Hacken die Welt verbessern!</p>
-            <p>[Gemeinsam:] Viel Spaß!</p>
+            <p>[Gemeinsam:] ➡️ Viel Spaß!</p>
           </aside>
         </section>
       </div>
