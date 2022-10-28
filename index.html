@@ -148,6 +148,17 @@
       .source-link.small {
         font-size: 0.5em;
       }
+      .blinky-border {
+        animation: 1s infinite blinkyBorder;
+        border: 3px dashed;
+        transition: border-color 0.2s;
+      }
+      @keyframes blinkyBorder {
+       0%   { border-color: #f968ae }
+       33%  { border-color: #c1cd5b }
+       67%  { border-color: #36b94e }
+       100% { border-color: #f968ae }
+      }
       .final-message {
         position: absolute;
         right: -3%;
@@ -200,11 +211,11 @@
 
         <section>
           <section class="question">
-            <h1>Wie ist der Begriff<em>„Hacker*in“</em><br>überhaupt entstanden?</h1>
+            <h1>Wie ist der Begriff <span class="blinky-border" style="display: inline-block; padding: 0 0.25em; border-radius: 1em;">„Hacker*in“</span><br>überhaupt entstanden?</h1>
             <ol>
               <li class="fragment">Weil Menschen sich so über Computer geärgert haben, dass sie sie vor Wut mit Äxten kaputt gehackt haben.</li>
-              <li class="fragment correct">Weil Student*innen in ihrer Freizeit Modelleisenbahn gespielt und dabei clevere Lösungen für Probleme gefunden haben.</li>
-              <li class="fragment">Weil man beim Eindringen in gesicherte Systeme virtuelle „Löcher“ in die Firewalls hacken muss.</li>
+              <li class="fragment correct">Weil Student*innen beim Spielen mit Modelleisenbahnen clevere Lösungen für Probleme gefunden haben.</li>
+              <li class="fragment">Weil man beim Eindringen in gesicherte Systeme „Löcher“ in die Firewalls hacken muss.</li>
             </ol>
             <div class="fragment quiz-animation"></div><div class="fragment solve"></div>
             <aside class="notes">
@@ -227,8 +238,8 @@
             <h1>Was ist <em>„Ethik“</em> überhaupt?</h1>
             <ol>
               <li class="fragment correct">Ethik ist ein Teilgebiet der Philosophie, das sich mit dem „richtigen“ Handeln befasst.</li>
-              <li class="fragment">Ethik ist die Lehre vom menschlichen Körper.</li>
-              <li class="fragment">Ethik ist ein Teilgebiet der Informatik, das sich mit der Sicherheit beschäftigt.</li>
+              <li class="fragment">Ethik ist die Lehre vom menschlichen Geist.</li>
+              <li class="fragment">Ethik ist ein Teilgebiet der Informatik, das sich mit Sicherheit beschäftigt.</li>
             </ol>
             <div class="fragment quiz-animation"></div><div class="fragment solve"></div>
             <aside class="notes">
@@ -508,6 +519,8 @@
     <script src="js/reveal.js"></script>
 
     <script>
+      const solvingProgressBar = document.querySelector(".solving-progress-bar")
+
       Reveal.initialize({
         controls: false,
         controlsTutorial: false,
@@ -524,7 +537,7 @@
       })
 
       Reveal.addEventListener('fragmentshown', function(event) {
-          const questionList = Reveal.getCurrentSlide().querySelector(".question ol")
+        const questionList = Reveal.getCurrentSlide().querySelector(".question ol")
 
         if (event.fragment.classList.contains("solve")) {
           questionList.classList.remove("animating")
