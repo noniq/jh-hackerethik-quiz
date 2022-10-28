@@ -23,6 +23,27 @@
     </script>
 
     <style type="text/css">
+      .solving-progress-bar {
+        position: absolute;
+        opacity: 0;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 1em;
+        animation: 1s infinite blinkyBackground;
+        transition: background-color 1s ease-out, width 2s linear;
+      }
+      .solving-progress-bar.preparing-to-solve {
+        display: block;
+        opacity: 1;
+        width: 0;
+      }
+      @keyframes blinkyBackground {
+        0%   { background-color: #f968ae }
+        33%  { background-color: #c1cd5b }
+        67%  { background-color: #36b94e }
+        100% { background-color: #f968ae }
+      }
       .reveal h1, .reveal h2 {
         text-transform: none;
       }
@@ -146,6 +167,7 @@
     </style>
   </head>
   <body>
+    <div class="solving-progress-bar"></div>
     <div class="reveal">
       <div class="slides">
         <section>
@@ -506,7 +528,11 @@
 
         if (event.fragment.classList.contains("solve")) {
           questionList.classList.remove("animating")
-          setTimeout(() => { questionList.classList.add("solved") }, 1500)
+          solvingProgressBar.classList.add("preparing-to-solve")
+          setTimeout(() => {
+            solvingProgressBar.classList.remove("preparing-to-solve")
+            questionList.classList.add("solved")
+          }, 2200)
         }
 
         if (event.fragment.classList.contains("quiz-animation")) {
