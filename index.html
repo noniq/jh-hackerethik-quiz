@@ -76,9 +76,9 @@
         font-size: 0.75em;
       }
       .question ol > li {
-        padding: 0.5em 0.5em 0.5em 3em;
+        padding: 0.5em 1em 0.5em 2.5em;
         transition: all 0.5s cubic-bezier(.19, .66, .72, 1.52) !important;
-        border-radius: 1.05em;
+        border-radius: 0.5em;
         background: transparent;
         position: relative;
       }
@@ -86,13 +86,12 @@
         content: "";
         display: block;
         position: absolute;
-        left: 0;
-        top: 0;
-        width: 2.1em;
+        left: 0.5em;
+        top: 0.5em;
         height: 2.1em;
-        background-size: cover;
         transition: all 0.5s ease-out;
         transform: scale(1);
+        font-weight: bold;
       }
       .question ol.animating > li::before {
         animation: 0.4s infinite alternate cubic-bezier(0.25, 0.46, 0.45, 0.94) bulletAnimation;
@@ -104,17 +103,23 @@
         display: block;
       }
       .question ol > li:nth-child(1)::before {
-        background-image: url(images/bullet-1@2x.png);
+        color: #f968ae;
+        content: "01 |";
       }
       .question ol > li:nth-child(2)::before {
-        background-image: url(images/bullet-2@2x.png);
-        animation-delay: 0.2s;
-      }
-      .question ol > li:nth-child(3)::before {
-        background-image: url(images/bullet-3@2x.png);
+        color: #c1cd5b;
+        content: "10 |";
         animation-delay: 0.1s;
       }
+      .question ol > li:nth-child(3)::before {
+        color: #36b94e;
+        content: "11 |";
+        animation-delay: 0.2s;
+      }
       .question ol.solved > li.correct {
+        color: #000 !important;
+      }
+      .question ol.solved > li.correct::before {
         color: #000 !important;
       }
       .question ol.solved > li:nth-of-type(1).correct {
@@ -128,7 +133,7 @@
       }
       @keyframes bulletAnimation {
         0% { transform: scale(1) }
-        100% { transform: scale(1.66) }
+        100% { transform: scale(1.75) }
       }
       blockquote.ethik {
         text-align: left;
@@ -199,11 +204,8 @@
           </section>
 
           <section>
-            <h2 style="height: 3em">
-              <img src="images/bullet-1@2x.png" style="background: transparent; border: none; width: 3em; display: inline-block; margin: 0 0.5em">
-              <img src="images/bullet-2@2x.png" style="background: transparent; border: none; width: 3em; display: inline-block; margin: 0 0.5em">
-              <img src="images/bullet-3@2x.png" style="background: transparent; border: none; width: 3em; display: inline-block; margin: 0 0.5em">
-            </h2>
+            <h1>Hacker*innen-Ethik</h1>
+            <h2 style="height: 3em">01, 10, oder 11!</h2>
             <aside class="notes">
               <p class="i">Alpaka, Gorilla und Space Invader!</p>
               <p class="i">Also, ganz kurz wie unsere abgeänderte Version funktioniert: Es gibt zu jeder Frage drei mögliche Antworten. Und hier im Raum gibt es 3 Zonen (Alpaka, Gorilla und Space Invader). Sobald wir „Alpaka, Gorilla oder Space Invader!“ sagen, lauft ihr zum Tier, von dem ihr glaubt, dass es zur richtigen Antwort gehört. Sobald wir dann „Letzte Chance vorbei!“ sagen, bleiben alle stehen – und dann wird aufgelöst, welche Antwort richtig ist.</p>
@@ -513,8 +515,8 @@
           { src: 'plugin/markdown/markdown.js' },
           { src: 'plugin/notes/notes.js', async: true },
           { src: 'plugin/highlight/highlight.js', async: true },
-          { src: 'socket.io/socket.io.js', async: true },
-          { src: 'plugin/notes-server/client.js', async: true },
+          // { src: 'socket.io/socket.io.js', async: true },
+          //{ src: 'plugin/notes-server/client.js', async: true },
         ]
       })
 
