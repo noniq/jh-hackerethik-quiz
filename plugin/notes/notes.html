@@ -305,8 +305,22 @@
       .speaker-controls-notes .value p.s {
         color: #f968ae;
       }
+      .speaker-controls-notes .value p.s::before {
+				display: inline-block;
+        color: #f968ae;
+				content: "[S]: ";
+				margin-right: 0.25em;
+				font-weight: bold;
+      }
       .speaker-controls-notes .value p.i {
         color: #36b94e;
+      }
+      .speaker-controls-notes .value p.i::before {
+				display: inline-block;
+        color: #36b94e;
+				content: "[I]: ";
+				margin-right: 0.25em;
+				font-weight: bold;
       }
       .speaker-controls-notes .value em {
         font-weight: bold;
